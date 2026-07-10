@@ -1,0 +1,1 @@
+export { PhoneDetailSkeleton } from './PhoneDetailSkeleton';

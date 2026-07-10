@@ -1,0 +1,111 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  transition: opacity var(--transition-fast);
+  text-decoration: none;
+}
+
+.card:hover {
+  opacity: 1;
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-surface);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-8);
+  box-sizing: border-box;
+}
+
+.imageInnerWrapper {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.imageWrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  background-color: #000000;
+  transition: height 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 1;
+}
+
+.image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.info {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: var(--font-family);
+  z-index: 2;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2px;
+}
+
+.brand {
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  transition: color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.name {
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0;
+  transition: color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.price {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  transition: color 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media (min-width: 1024px) {
+  .card:hover .imageWrapper::before {
+    height: 100%;
+  }
+
+  .card:hover .brand {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .card:hover .name,
+  .card:hover .price {
+    color: #ffffff;
+  }
+}

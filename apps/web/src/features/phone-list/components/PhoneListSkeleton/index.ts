@@ -1,0 +1,1 @@
+export { PhoneListSkeleton } from './PhoneListSkeleton';

@@ -1,0 +1,25 @@
+{
+  "name": "@phone-catalog/shared",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./types": "./src/types/index.ts",
+    "./constants": "./src/constants/index.ts",
+    "./utils": "./src/utils/index.ts"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "lint": "biome check src/",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@phone-catalog/config": "workspace:*",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.10"
+  }
+}

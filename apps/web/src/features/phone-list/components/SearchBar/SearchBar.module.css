@@ -1,0 +1,9 @@
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: var(--space-10);
+}
+
+.input {
+  /* Underline styled input looks great in Zara's minimal layouts */
+}

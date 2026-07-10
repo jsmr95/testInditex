@@ -1,0 +1,29 @@
+{
+  "name": "zara-phone-catalog",
+  "private": true,
+  "description": "Zara Web Challenge — Phone Catalog Monorepo",
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=18.12.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "test:coverage": "turbo test -- --coverage",
+    "lint": "turbo lint",
+    "check": "turbo check",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "clean": "turbo clean && rm -rf node_modules",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "husky": "^9.1.0",
+    "lint-staged": "^15.2.0",
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0"
+  }
+}

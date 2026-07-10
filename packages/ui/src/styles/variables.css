@@ -1,0 +1,60 @@
+:root {
+  /* Zara-inspired minimalist B&W palette */
+  --color-primary: #000000;
+  --color-background: #ffffff;
+  --color-surface: #f7f7f7;
+  --color-surface-hover: #eaeaea;
+  --color-text-primary: #000000;
+  --color-text-secondary: #555555;
+  --color-text-tertiary: #888888;
+  --color-border: #e5e5e5;
+  --color-accent: #000000;
+  --color-error: #b00020;
+  --color-success: #1b5e20;
+  --color-white: #ffffff;
+  --color-grey: #777777;
+
+  /* Font settings (Helvetica/Arial per PDF) */
+  --font-family: Helvetica, Arial, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.8125rem; /* ~13px */
+  --font-size-base: 0.875rem; /* ~14px (often used in modern minimalist fashion UI) */
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2.25rem;
+
+  /* Spacing system (4px baseline) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Focus and Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --outline-focus: 2px solid var(--color-primary);
+  --outline-offset-focus: 2px;
+}
+
+[data-theme="dark"] {
+  --color-primary: #ffffff;
+  --color-background: #0d0d0d;
+  --color-surface: #181818;
+  --color-surface-hover: #2c2c2c;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #aaaaaa;
+  --color-text-tertiary: #666666;
+  --color-border: #292929;
+  --color-accent: #ffffff;
+  --color-error: #ff4d4d;
+  --color-success: #4caf50;
+}

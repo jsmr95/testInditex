@@ -1,0 +1,92 @@
+.card {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border);
+  width: 100%;
+}
+
+.imageWrapper {
+  width: 90px;
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-family: var(--font-family);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-2);
+}
+
+.titleInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.brand {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.price {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: var(--space-4);
+}
+
+.option {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.02em;
+}
+
+.removeBtn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-family: var(--font-family);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: var(--space-1) 0;
+  transition: color var(--transition-fast);
+  color: red;
+}
+
+.removeBtn:hover {
+  color: var(--color-error);
+}

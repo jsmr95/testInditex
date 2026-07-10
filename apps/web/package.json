@@ -1,0 +1,30 @@
+{
+  "name": "@phone-catalog/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "rsbuild dev --port 3000",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview",
+    "check": "tsc --noEmit",
+    "lint": "biome check src/",
+    "clean": "rm -rf dist .rsbuild"
+  },
+  "dependencies": {
+    "@phone-catalog/api-client": "workspace:*",
+    "@phone-catalog/shared": "workspace:*",
+    "@phone-catalog/ui": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.1.1"
+  },
+  "devDependencies": {
+    "@phone-catalog/config": "workspace:*",
+    "@rsbuild/core": "^1.1.0",
+    "@rsbuild/plugin-react": "^1.0.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}

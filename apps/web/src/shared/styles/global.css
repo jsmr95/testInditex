@@ -1,0 +1,61 @@
+@import "@phone-catalog/ui/styles/variables.css";
+@import "@phone-catalog/ui/styles/animations.css";
+
+html,
+body,
+#root {
+  height: 100%;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* Accessibility Focus Outline */
+*:focus-visible {
+  outline: var(--outline-focus);
+  outline-offset: var(--outline-offset-focus);
+}
+
+/* Screen reader utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
