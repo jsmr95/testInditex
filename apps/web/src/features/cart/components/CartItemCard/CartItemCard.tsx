@@ -1,8 +1,9 @@
+import type * as React from 'react';
+
+import styles from './CartItemCard.module.css';
 import type { CartItem } from '@phone-catalog/shared';
 import { formatPrice } from '@phone-catalog/shared';
 import { Image } from '@phone-catalog/ui';
-import type * as React from 'react';
-import styles from './CartItemCard.module.css';
 
 export interface CartItemCardProps {
   readonly item: CartItem;

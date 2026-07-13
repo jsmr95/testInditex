@@ -1,4 +1,5 @@
 import type * as React from 'react';
+
 import styles from './Badge.module.css';
 
 export interface BadgeProps {

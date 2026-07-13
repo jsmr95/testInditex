@@ -1,3 +1,5 @@
+import type { HttpClient, HttpError } from '../client/http-client';
+import { ProductMapper } from '../mappers/product.mapper';
 import type {
   ApiProductDetail,
   ApiProductListItem,
@@ -7,8 +9,6 @@ import type {
   SearchParams,
 } from '@phone-catalog/shared';
 import { API_ENDPOINTS } from '@phone-catalog/shared';
-import type { HttpClient, HttpError } from '../client/http-client';
-import { ProductMapper } from '../mappers/product.mapper';
 
 /**
  * ProductRepository — data access layer for products.

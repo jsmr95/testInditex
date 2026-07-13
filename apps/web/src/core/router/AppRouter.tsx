@@ -1,11 +1,12 @@
-import { ROUTES } from '@phone-catalog/shared';
 import type * as React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router';
+
 import { CartPage } from '../../features/cart';
 import { PhoneDetailPage } from '../../features/phone-detail';
 import { PhoneListPage } from '../../features/phone-list';
 import { Layout } from '../../shared/components/Layout';
 import { NotFound } from '../../shared/components/NotFound';
+import { ROUTES } from '@phone-catalog/shared';
 
 /**
  * AppRouter — single source of truth for all application routes.

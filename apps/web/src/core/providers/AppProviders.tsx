@@ -1,7 +1,8 @@
-import { ErrorBoundary, ToastProvider } from '@phone-catalog/ui';
 import type * as React from 'react';
+
 import { CartProvider } from '../context/cart';
 import { ConfigProvider } from '../context/config';
+import { ErrorBoundary, ToastProvider } from '@phone-catalog/ui';
 
 /**
  * AppProviders — composition root for all React context providers.

@@ -1,8 +1,9 @@
-import { ROUTES } from '@phone-catalog/shared';
-import { Button } from '@phone-catalog/ui';
 import type * as React from 'react';
 import { Link } from 'react-router';
+
 import styles from './NotFound.module.css';
+import { ROUTES } from '@phone-catalog/shared';
+import { Button } from '@phone-catalog/ui';
 
 export const NotFound: React.FC = () => {
   return (

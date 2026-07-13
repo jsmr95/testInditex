@@ -1,6 +1,7 @@
-import type { ProductSpecs } from '@phone-catalog/shared';
 import type * as React from 'react';
+
 import styles from './PhoneSpecs.module.css';
+import type { ProductSpecs } from '@phone-catalog/shared';
 
 export interface PhoneSpecsProps {
   readonly brand: string;

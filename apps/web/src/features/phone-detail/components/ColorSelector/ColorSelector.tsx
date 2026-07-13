@@ -1,6 +1,7 @@
-import type { ColorOption } from '@phone-catalog/shared';
 import type * as React from 'react';
+
 import styles from './ColorSelector.module.css';
+import type { ColorOption } from '@phone-catalog/shared';
 
 export interface ColorSelectorProps {
   readonly options: readonly ColorOption[];

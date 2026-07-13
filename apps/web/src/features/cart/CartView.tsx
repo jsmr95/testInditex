@@ -1,8 +1,9 @@
-import type { CartItem } from '@phone-catalog/shared';
 import type * as React from 'react';
+
 import styles from './CartPage.module.css';
 import { CartItemCard } from './components/CartItemCard';
 import { CartSummary } from './components/CartSummary';
+import type { CartItem } from '@phone-catalog/shared';
 
 export interface CartViewProps {
   readonly items: readonly CartItem[];

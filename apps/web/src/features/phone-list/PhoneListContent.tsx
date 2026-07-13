@@ -1,8 +1,9 @@
-import type { ProductListItem } from '@phone-catalog/shared';
 import * as React from 'react';
-import styles from './PhoneListPage.module.css';
+
 import { PhoneGrid } from './components/PhoneGrid';
 import { getPhoneListPromise } from './phone-list.data';
+import styles from './PhoneListPage.module.css';
+import type { ProductListItem } from '@phone-catalog/shared';
 
 interface PhoneListContentProps {
   readonly query: string;

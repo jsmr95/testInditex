@@ -1,12 +1,13 @@
-import type { ColorOption, ProductDetail, StorageOption } from '@phone-catalog/shared';
-import { formatPrice } from '@phone-catalog/shared';
-import { Button, Image } from '@phone-catalog/ui';
 import type * as React from 'react';
-import styles from './PhoneDetailPage.module.css';
+
 import { ColorSelector } from './components/ColorSelector';
 import { PhoneSpecs } from './components/PhoneSpecs';
 import { SimilarProducts } from './components/SimilarProducts';
 import { StorageSelector } from './components/StorageSelector';
+import styles from './PhoneDetailPage.module.css';
+import type { ColorOption, ProductDetail, StorageOption } from '@phone-catalog/shared';
+import { formatPrice } from '@phone-catalog/shared';
+import { Button, Image } from '@phone-catalog/ui';
 
 export interface PhoneDetailViewProps {
   readonly phone: ProductDetail;

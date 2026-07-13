@@ -1,7 +1,8 @@
+import * as React from 'react';
+
+import { cartReducer, initialCartState } from './cart.reducer';
 import type { CartItem, CartState } from '@phone-catalog/shared';
 import { CACHE_CONFIG, SafeStorage } from '@phone-catalog/shared';
-import * as React from 'react';
-import { cartReducer, initialCartState } from './cart.reducer';
 
 export interface CartContextType {
   readonly state: CartState;

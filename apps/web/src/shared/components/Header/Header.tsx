@@ -1,9 +1,10 @@
-import { ROUTES } from '@phone-catalog/shared';
-import { Badge } from '@phone-catalog/ui';
 import type * as React from 'react';
 import { NavLink } from 'react-router';
+
 import styles from './Header.module.css';
 import { useCartCount } from './hooks/useCartCount';
+import { ROUTES } from '@phone-catalog/shared';
+import { Badge } from '@phone-catalog/ui';
 
 export const Header: React.FC = () => {
   const totalCount = useCartCount();

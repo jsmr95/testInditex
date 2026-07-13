@@ -1,11 +1,12 @@
-import { Button } from '@phone-catalog/ui';
-import { ErrorBoundary } from '@phone-catalog/ui';
 import * as React from 'react';
-import { PhoneListContent } from './PhoneListContent';
-import styles from './PhoneListPage.module.css';
+
 import { PhoneListSkeleton } from './components/PhoneListSkeleton';
 import { SearchBar } from './components/SearchBar';
 import { invalidatePhoneListCache } from './phone-list.data';
+import { PhoneListContent } from './PhoneListContent';
+import styles from './PhoneListPage.module.css';
+import { Button } from '@phone-catalog/ui';
+import { ErrorBoundary } from '@phone-catalog/ui';
 
 /**
  * PhoneListPage — orchestrator with useTransition + Suspense.

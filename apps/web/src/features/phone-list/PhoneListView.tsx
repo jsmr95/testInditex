@@ -1,10 +1,11 @@
-import type { ProductListItem } from '@phone-catalog/shared';
-import { Button } from '@phone-catalog/ui';
 import type * as React from 'react';
-import styles from './PhoneListPage.module.css';
+
 import { PhoneGrid } from './components/PhoneGrid';
 import { PhoneListSkeleton } from './components/PhoneListSkeleton';
 import { SearchBar } from './components/SearchBar';
+import styles from './PhoneListPage.module.css';
+import type { ProductListItem } from '@phone-catalog/shared';
+import { Button } from '@phone-catalog/ui';
 
 export interface PhoneListViewProps {
   readonly phones: readonly ProductListItem[];

@@ -1,6 +1,7 @@
+import * as React from 'react';
+
 import type { FeatureFlagProvider } from '@web/config/feature-flags';
 import { SimpleFeatureFlagProvider } from '@web/config/feature-flags';
-import * as React from 'react';
 
 export interface ConfigContextType {
   readonly featureFlags: FeatureFlagProvider;

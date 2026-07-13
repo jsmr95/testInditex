@@ -1,9 +1,10 @@
-import type { ApiProductDetail, ApiProductListItem } from '@phone-catalog/shared';
 import { http, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
 import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
+
 import { HttpClient } from '../client/http-client';
 import { ProductRepository } from './product.repository';
+import type { ApiProductDetail, ApiProductListItem } from '@phone-catalog/shared';
 
 const MOCK_PRODUCTS: readonly ApiProductListItem[] = [
   {

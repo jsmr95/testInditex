@@ -1,7 +1,8 @@
+import type * as React from 'react';
+
+import styles from './CartSummary.module.css';
 import { formatPrice } from '@phone-catalog/shared';
 import { Button } from '@phone-catalog/ui';
-import type * as React from 'react';
-import styles from './CartSummary.module.css';
 
 export interface CartSummaryProps {
   readonly totalPrice: number;

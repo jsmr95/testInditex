@@ -1,7 +1,7 @@
-import type { HttpError } from '@phone-catalog/api-client';
-import type { ProductListItem, Result } from '@phone-catalog/shared';
 import { getCachedPromise, invalidateCacheEntry } from '../../core/services/promise-cache';
 import { services } from '../../core/services/service-registry';
+import type { HttpError } from '@phone-catalog/api-client';
+import type { ProductListItem, Result } from '@phone-catalog/shared';
 
 function buildKey(query: string): string {
   return `phone-list:${query}`;

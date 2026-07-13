@@ -1,7 +1,8 @@
-import type { ProductDetail, ProductListItem } from '@phone-catalog/shared';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import type { ProductRepository } from '../repositories/product.repository';
 import { ProductService } from './product.service';
+import type { ProductDetail, ProductListItem } from '@phone-catalog/shared';
 
 describe('ProductService Unit Tests', () => {
   let service: ProductService;

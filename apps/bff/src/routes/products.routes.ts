@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 import { proxyRequest } from '../services/proxy.service';
 
 const router = Router();

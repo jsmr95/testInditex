@@ -1,9 +1,10 @@
+import type * as React from 'react';
+import { Link } from 'react-router';
+
+import styles from './PhoneCard.module.css';
 import type { ProductListItem } from '@phone-catalog/shared';
 import { ROUTES, formatPrice } from '@phone-catalog/shared';
 import { Image } from '@phone-catalog/ui';
-import type * as React from 'react';
-import { Link } from 'react-router';
-import styles from './PhoneCard.module.css';
 
 export interface PhoneCardProps {
   readonly phone: ProductListItem;

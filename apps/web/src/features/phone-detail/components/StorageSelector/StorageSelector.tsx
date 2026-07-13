@@ -1,6 +1,7 @@
-import type { StorageOption } from '@phone-catalog/shared';
 import type * as React from 'react';
+
 import styles from './StorageSelector.module.css';
+import type { StorageOption } from '@phone-catalog/shared';
 
 export interface StorageSelectorProps {
   readonly options: readonly StorageOption[];

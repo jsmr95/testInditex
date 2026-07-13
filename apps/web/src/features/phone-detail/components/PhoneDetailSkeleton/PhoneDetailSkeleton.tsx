@@ -1,6 +1,7 @@
-import { Skeleton } from '@phone-catalog/ui';
 import type * as React from 'react';
+
 import styles from './PhoneDetailSkeleton.module.css';
+import { Skeleton } from '@phone-catalog/ui';
 
 export const PhoneDetailSkeleton: React.FC = () => {
   return (

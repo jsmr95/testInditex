@@ -1,7 +1,8 @@
+import * as React from 'react';
+
+import styles from './SearchBar.module.css';
 import { debounce } from '@phone-catalog/shared';
 import { Input } from '@phone-catalog/ui';
-import * as React from 'react';
-import styles from './SearchBar.module.css';
 
 export interface SearchBarProps {
   readonly value: string;

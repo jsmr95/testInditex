@@ -1,11 +1,12 @@
-import { Button } from '@phone-catalog/ui';
-import { ErrorBoundary } from '@phone-catalog/ui';
 import * as React from 'react';
 import { useParams } from 'react-router';
-import { PhoneDetailContent } from './PhoneDetailContent';
-import styles from './PhoneDetailPage.module.css';
+
 import { PhoneDetailSkeleton } from './components/PhoneDetailSkeleton';
 import { invalidatePhoneDetailCache } from './phone-detail.data';
+import { PhoneDetailContent } from './PhoneDetailContent';
+import styles from './PhoneDetailPage.module.css';
+import { Button } from '@phone-catalog/ui';
+import { ErrorBoundary } from '@phone-catalog/ui';
 
 /**
  * PhoneDetailPage — Suspense + ErrorBoundary orchestrator.

@@ -1,6 +1,7 @@
-import { Skeleton } from '@phone-catalog/ui';
 import type * as React from 'react';
+
 import styles from './PhoneListSkeleton.module.css';
+import { Skeleton } from '@phone-catalog/ui';
 
 export interface PhoneListSkeletonProps {
   readonly count?: number;

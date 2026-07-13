@@ -1,10 +1,11 @@
-import { ROUTES } from '@phone-catalog/shared';
-import { useToast } from '@phone-catalog/ui';
 import * as React from 'react';
 import { useNavigate } from 'react-router';
+
 import { CartContext } from '../../core/context/cart/CartContext';
 import { CartView } from './CartView';
 import { CartEmpty } from './components/CartEmpty';
+import { ROUTES } from '@phone-catalog/shared';
+import { useToast } from '@phone-catalog/ui';
 
 /**
  * CartPage — page orchestrator.

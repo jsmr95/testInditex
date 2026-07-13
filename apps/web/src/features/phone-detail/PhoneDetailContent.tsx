@@ -1,10 +1,11 @@
-import type { ColorOption, ProductDetail, StorageOption } from '@phone-catalog/shared';
-import { useToast } from '@phone-catalog/ui';
 import * as React from 'react';
 import { useNavigate } from 'react-router';
+
 import { CartContext } from '../../core/context/cart/CartContext';
-import { PhoneDetailView } from './PhoneDetailView';
 import { getPhoneDetailPromise } from './phone-detail.data';
+import { PhoneDetailView } from './PhoneDetailView';
+import type { ColorOption, ProductDetail, StorageOption } from '@phone-catalog/shared';
+import { useToast } from '@phone-catalog/ui';
 
 // ─── Interaction layer ───────────────────────────────────────────────────────
 

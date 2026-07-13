@@ -1,4 +1,5 @@
 import type * as React from 'react';
+
 import styles from './Skeleton.module.css';
 
 export interface SkeletonProps {

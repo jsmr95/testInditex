@@ -1,7 +1,7 @@
-import type { ProductDetail, ProductListItem, Result, SearchParams } from '@phone-catalog/shared';
-import { CACHE_CONFIG, SafeStorage } from '@phone-catalog/shared';
 import type { HttpError } from '../client/http-client';
 import type { ProductRepository } from '../repositories/product.repository';
+import type { ProductDetail, ProductListItem, Result, SearchParams } from '@phone-catalog/shared';
+import { CACHE_CONFIG, SafeStorage } from '@phone-catalog/shared';
 
 /**
  * ProductService — business logic facade.

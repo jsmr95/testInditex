@@ -1,5 +1,5 @@
-import { HttpClient, ProductRepository, ProductService } from '@phone-catalog/api-client';
 import { env } from '../../config/env';
+import { HttpClient, ProductRepository, ProductService } from '@phone-catalog/api-client';
 
 /**
  * ServiceRegistry — simple Dependency Injection container.

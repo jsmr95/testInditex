@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { err, isErr, isOk, ok } from './result';
 
 describe('Result Monad Utilities', () => {

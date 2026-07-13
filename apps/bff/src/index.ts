@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import morgan from 'morgan';
+
 import { env } from './config/env';
 import { errorHandler } from './middleware/error-handler';
 import { healthRouter } from './routes/health.routes';

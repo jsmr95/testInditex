@@ -1,4 +1,5 @@
 import type * as React from 'react';
+
 import styles from './Spinner.module.css';
 
 export interface SpinnerProps {

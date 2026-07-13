@@ -1,7 +1,8 @@
-import type { ProductListItem } from '@phone-catalog/shared';
 import type * as React from 'react';
+
 import { PhoneCard } from '../PhoneCard';
 import styles from './PhoneGrid.module.css';
+import type { ProductListItem } from '@phone-catalog/shared';
 
 export interface PhoneGridProps {
   readonly phones: readonly ProductListItem[];
