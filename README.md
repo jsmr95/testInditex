@@ -20,55 +20,113 @@ An online smartphone store with three main pages:
 
 ### Prerequisites
 
-You need to have the following installed on your machine:
+Make sure you have the following tools installed before you start. The project will not run correctly with older versions.
 
-| Tool | Minimum version | Download |
-|------|-----------------|----------|
-| **Node.js** | 18.12.0 or higher | [nodejs.org](https://nodejs.org) |
-| **pnpm** | 9.0.0 or higher | `npm install -g pnpm` |
+| Tool | Minimum version | Why it's needed | Download |
+|------|-----------------|-----------------|----------|
+| **Node.js** | 18.12.0 or higher | JavaScript runtime required to execute both the frontend and the BFF server | [nodejs.org](https://nodejs.org) |
+| **pnpm** | 9.0.0 or higher | Fast, disk-efficient package manager that handles the monorepo workspace | `npm install -g pnpm` |
+
+> 💡 **Tip:** If you use [nvm](https://github.com/nvm-sh/nvm), the project includes an `.nvmrc` file. Run `nvm use` in the root and it will switch to the correct Node.js version automatically.
 
 ### Steps
 
 ```bash
-# 1. Clone the repository
+# 1. Clone the repository and enter the project directory
 git clone <repository-url>
 cd <folder-name>
 
-# 2. Install all dependencies
+# 2. Install all dependencies for every package in the monorepo.
+#    pnpm resolves the workspace packages defined in pnpm-workspace.yaml
+#    and links them together locally, so changes in one package are
+#    immediately visible to others without republishing.
 pnpm install
 
-# 3. Start the application in development mode
+# 3. Start the application in development mode.
+#    This command uses Turborepo to run the `dev` script in all packages
+#    that define one (apps/web and apps/bff) in parallel.
+#
+#    • apps/web  → Rsbuild dev server on http://localhost:3000 (React UI)
+#    • apps/bff  → Express proxy server on http://localhost:3001 (API bridge)
+#
+#    Both processes must be running simultaneously for the app to work.
 pnpm dev
 ```
 
 Open your browser at **http://localhost:3000** and the app will be ready. ✅
 
-> **Note:** The `pnpm dev` command starts both the frontend (port `3000`) and the proxy server (port `3001`) simultaneously. Both are required for the application to work correctly.
+> **Note:** The `pnpm dev` command starts both the frontend (port `3000`) and the proxy server (port `3001`) simultaneously. The frontend proxies all `/api/*` requests to the BFF, which adds the required `x-api-key` header before forwarding them to the external Zara API. If the BFF is not running, the app will show network errors.
 
-### Production build
+---
+
+## 🏭 Build for production
+
+The production build compiles and optimises all packages in the correct dependency order, managed by Turborepo.
 
 ```bash
+# Build all packages and apps for production.
+#
+# Turborepo resolves the build graph automatically:
+#   1. Shared packages (config, shared, ui, api-client) are built first.
+#   2. apps/bff and apps/web are built afterwards, consuming the compiled packages.
+#
+# Output artifacts are placed in each package's `dist/` folder.
+# Turborepo also caches build results locally — if nothing has changed,
+# subsequent builds complete in milliseconds by replaying the cache.
 pnpm build
 ```
+
+After building, you can preview the production frontend locally:
+
+```bash
+# Serve the compiled frontend bundle (apps/web/dist) with a static server.
+# This is useful to verify the production build behaves the same as dev.
+npx serve apps/web/dist
+```
+
+To run the BFF in production mode alongside it:
+
+```bash
+# Run the compiled BFF server (Node.js, no live-reload).
+# Make sure the API key environment variable is set before starting.
+node apps/bff/dist/index.js
+```
+
+> **Note:** For a real deployment you would use a process manager (e.g. PM2) or containerise both processes with Docker. The above commands are for local production verification only.
 
 ---
 
 ## 🧪 Tests & code quality
 
 ```bash
-# Run all tests
+# Run the full test suite across all packages.
+# Turborepo builds dependent packages first, then runs Vitest in each
+# package that has tests. Results are printed per-package.
 pnpm test
 
-# Check TypeScript types without compiling
+# Run tests and generate a coverage report.
+# The HTML report is saved to each package's coverage/ folder.
+pnpm test:coverage
+
+# Type-check every package with the TypeScript compiler (tsc --noEmit).
+# No files are emitted — this is a pure type validation pass.
+# Run this before pushing to catch type errors that tests might miss.
 pnpm check
 
-# Lint the codebase for style issues
+# Lint the codebase with Biome.
+# Biome checks for style issues, unused imports, and potential bugs
+# using the rules configured in biome.json at the root.
 pnpm lint
 
-# Auto-format the code
+# Auto-format all source files with Biome.
+# The `--write` flag applies the formatting changes in place.
 pnpm format
 
-# Clean cache and build folders
+# Verify formatting without modifying files (useful in CI).
+pnpm format:check
+
+# Delete all build artifacts (dist/) and the node_modules folder.
+# Run this if you hit stale cache issues or want a completely clean slate.
 pnpm clean
 ```
 
@@ -139,19 +197,42 @@ The data access layer is abstracted using the Repository pattern. Raw API respon
 ### 4. Persistent shopping cart
 The cart state is stored in `localStorage` via React Context, so products are not lost when the page is refreshed or the browser is closed.
 
+### 5. Feature Flags
+A lightweight feature flag system was implemented in `apps/web/src/config/feature-flags.ts`. It exposes a `FeatureFlagProvider` interface intentionally compatible with [GrowthBook](https://www.growthbook.io/), the industry-standard open-source feature management platform, so the internal implementation (`SimpleFeatureFlagProvider`) can be swapped out for a real remote service in the future with zero component changes.
+
+All flags are injected into the React tree through `ConfigContext` and consumed via the `useConfig()` hook, keeping components fully decoupled from the flag source.
+
+Flags currently defined:
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `show-similar-products` | ✅ `true` | Renders the "Similar items" carousel on the product detail page |
+| `enable-dark-mode` | ❌ `false` | Reserved for future dark theme support (toggler already wired in `ConfigContext`) |
+| `enable-quick-buy` | ❌ `false` | Reserved for a future one-click add-to-cart interaction |
+
+> **How to enable a flag locally:** pass custom flags to `SimpleFeatureFlagProvider` in `ConfigContext.tsx`, or swap the provider for one backed by environment variables / a remote service.
+
 ---
 
 ## 📁 Detailed frontend structure
 
 ```
 apps/web/src/
+├── config/
+│   ├── env.ts           → Environment variable resolution (BFF URL, dev mode)
+│   └── feature-flags.ts → FeatureFlagProvider interface + SimpleFeatureFlagProvider
+├── core/
+│   ├── context/
+│   │   ├── cart/        → CartContext + cartReducer (global cart state)
+│   │   └── config/      → ConfigContext: exposes featureFlags + theme via useConfig()
+│   └── services/
+│       └── service-registry.ts → DI container: HttpClient, Repository, Service singletons
 ├── features/
 │   ├── phone-list/      → Listing page with search bar and grid
 │   ├── phone-detail/    → Detail page with selectors and similar items
 │   └── cart/            → Shopping cart page
 ├── shared/
 │   ├── components/      → Header, NotFound (404), and other global components
-│   ├── context/         → React Context for the cart (global state)
 │   └── styles/          → Global styles and CSS variables
 └── App.tsx              → Application route configuration
 ```

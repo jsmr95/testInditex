@@ -1,13 +1,12 @@
 import { ROUTES } from '@phone-catalog/shared';
 import { Badge } from '@phone-catalog/ui';
-import * as React from 'react';
+import type * as React from 'react';
 import { NavLink } from 'react-router';
-import { CartContext } from '../../../core/context/cart/CartContext';
 import styles from './Header.module.css';
+import { useCartCount } from './hooks/useCartCount';
 
 export const Header: React.FC = () => {
-  const cartContext = React.useContext(CartContext);
-  const totalCount = cartContext?.totalItemsCount ?? 0;
+  const totalCount = useCartCount();
 
   return (
     <header className={styles.header}>

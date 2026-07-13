@@ -1,2 +1,3 @@
 export { PhoneListPage } from './PhoneListPage';
-export { usePhones } from './hooks/usePhones';
+export { PhoneListView } from './PhoneListView';
+export { PhoneListContent } from './PhoneListContent';

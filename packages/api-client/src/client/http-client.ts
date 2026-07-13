@@ -1,6 +1,5 @@
-import { err, ok } from '@phone-catalog/shared';
 import type { Result } from '@phone-catalog/shared';
-import { HTTP_CONFIG } from '@phone-catalog/shared';
+import { HTTP_CONFIG, err, ok } from '@phone-catalog/shared';
 
 /**
  * Configuration for HttpClient.

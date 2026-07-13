@@ -1,5 +1,5 @@
-import { ROUTES, formatPrice } from '@phone-catalog/shared';
 import type { ProductListItem } from '@phone-catalog/shared';
+import { ROUTES, formatPrice } from '@phone-catalog/shared';
 import { Image } from '@phone-catalog/ui';
 import type * as React from 'react';
 import { Link } from 'react-router';

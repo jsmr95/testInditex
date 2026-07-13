@@ -7,8 +7,7 @@ import type {
   SearchParams,
 } from '@phone-catalog/shared';
 import { API_ENDPOINTS } from '@phone-catalog/shared';
-import type { HttpClient } from '../client/http-client';
-import type { HttpError } from '../client/http-client';
+import type { HttpClient, HttpError } from '../client/http-client';
 import { ProductMapper } from '../mappers/product.mapper';
 
 /**
